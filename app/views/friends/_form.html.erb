@@ -1,0 +1,42 @@
+<%= form_with(model: friend, class: "space-y-6") do |form| %>
+  <% if friend.errors.any? %>
+    <div class="text-red-500">
+      <h2 class="text-lg font-bold"><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul class="list-disc pl-5">
+        <% friend.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="flex flex-col">
+    <%= form.label :first_name, class: "mb-2" %>
+    <%= form.text_field :first_name, class: "border p-2 rounded" %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= form.label :last_name, class: "mb-2" %>
+    <%= form.text_field :last_name, class: "border p-2 rounded" %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= form.label :email, class: "mb-2" %>
+    <%= form.text_field :email, class: "border p-2 rounded" %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= form.label :phone, class: "mb-2" %>
+    <%= form.text_field :phone, class: "border p-2 rounded" %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= form.label :github_handle, class: "mb-2" %>
+    <%= form.text_field :github_handle, class: "border p-2 rounded" %>
+  </div>
+
+  <div class="flex justify-center">
+    <%= form.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+<% end %>
